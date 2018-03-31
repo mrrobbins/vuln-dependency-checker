@@ -22,6 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<dependency-check-maven.version>3.1.1</dependency-check-maven.version>
 	</properties>
 
 	<dependencies>
@@ -34,7 +35,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>2.7.7</version>
+			<version>2.8.3</version>
 		</dependency>
 
 		<!-- contains CVE-2016-2402 -->
@@ -42,12 +43,6 @@
 			<groupId>com.squareup.okhttp</groupId>
 			<artifactId>okhttp</artifactId>
 			<version>1.0.0</version>
-		</dependency>
-
-		<dependency>
-	    <groupId>us.springett</groupId>
-	    <artifactId>nist-data-mirror</artifactId>
-	    <version>1.1.1</version>
 		</dependency>
 
 		<dependency>
@@ -66,7 +61,7 @@
 			<plugin>
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
-				<version>3.1.1</version>
+				<version>${dependency-check-maven.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -74,10 +69,12 @@
 						</goals>
 					</execution>
 				</executions>
-				<!-- Override broken defaults - https://github.com/jeremylong/DependencyCheck/issues/1171 -->
+				<!-- Override broken default URLs - https://github.com/jeremylong/DependencyCheck/issues/1171 -->
 				<configuration>
-					<cveUrl20Modified>https://nvd.nist.gov/feeds/xml/cve/2.0/nvdcve-2.0-modified.xml.gz</cveUrl20Modified>
-					<cveUrl20Base>https://nvd.nist.gov/feeds/xml/cve/2.0/nvdcve-2.0-%d.xml.gz</cveUrl20Base>
+					<cveUrl12Modified>https://nvd.nist.gov/feeds/xml/cve/1.2/nvdcve-modified.xml.gz</cveUrl12Modified>
+        	<cveUrl20Modified>https://nvd.nist.gov/feeds/xml/cve/2.0/nvdcve-2.0-modified.xml.gz</cveUrl20Modified>
+        	<cveUrl12Base>https://nvd.nist.gov/feeds/xml/cve/1.2/nvdcve-%d.xml.gz</cveUrl12Base>
+        	<cveUrl20Base>https://nvd.nist.gov/feeds/xml/cve/2.0/nvdcve-2.0-%d.xml.gz</cveUrl20Base>
 				</configuration>
 			</plugin>
 		</plugins>
