@@ -19,8 +19,12 @@ https://jeremylong.github.io/DependencyCheck/dependency-check-maven/index.html
 
 https://jeremylong.github.io/DependencyCheck/dependency-check-maven/check-mojo.html
 
-1. Run `mvn org.owasp:dependency-check-maven:3.1.1:check`
+1. Run `mvn org.owasp:dependency-check-maven:3.1.1:check --format=ALL -f pom.xml`
 1. Open `target/dependency-check-report.html`
+
+##### Issues
+
+Note taking all config properties as command line arguments
 
 ## Command line
 
