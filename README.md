@@ -35,6 +35,7 @@ https://jeremylong.github.io/DependencyCheck/dependency-check-maven/check-mojo.h
 ## NSP Analyzer
 
 Only runs online, sending package.json to nsp.
+https://github.com/jeremylong/DependencyCheck/blob/master/core/src/main/java/org/owasp/dependencycheck/analyzer/NspAnalyzer.java
 https://github.com/jeremylong/DependencyCheck/blob/master/core/src/main/java/org/owasp/dependencycheck/data/nsp/NspSearch.java
 
 
